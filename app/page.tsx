@@ -1,166 +1,95 @@
 import {
-  Search,
-  Home as House,
-  Library,
-  Plus,
-  ArrowRight,
-  List,
   ChevronLeft,
   ChevronRight,
   Bell,
   User2,
   ArrowDownCircle,
-  PauseCircle,
-  SkipForward,
-  SkipBack,
-  Shuffle,
-  Repeat2,
+  Play,
 } from 'lucide-react'
 import Image from 'next/image'
+import Link from 'next/link'
+import Sidebar from './components/sidebar'
+import Footer from './components/footer'
 
 export default function Home() {
+  interface FavourItem {
+    src: string
+    name: string
+    href: string
+  }
+  interface ForYouItem {
+    src: string
+    name: string
+    description: string
+    href: string
+  }
+
+  const Favour: FavourItem[] = [
+    {
+      src: '/metallica.jpeg',
+      name: 'Queen',
+      href: '#',
+    },
+    {
+      src: '/bring-me-the-horizon.jpg',
+      name: 'Red Hot Chili Peppers',
+      href: '#',
+    },
+    {
+      src: '/thousand-foot-krutch.jpg',
+      name: 'Thousand Foot Kutch',
+      href: '#',
+    },
+    {
+      src: '/system-of-a-down.jpeg',
+      name: 'Syntem of a Down',
+      href: '#',
+    },
+    {
+      src: '/bring-me-the-horizon.jpg',
+      name: 'Bring me the Horizon',
+      href: '#',
+    },
+    {
+      src: '/metallica.jpeg',
+      name: 'Metallica',
+      href: '#',
+    },
+  ]
+
+  const ForYou: ForYouItem[] = [
+    {
+      src: '/system-of-a-down.jpeg',
+      name: 'Daily Mix 1',
+      description: 'Lorem ipsum dolor sit amet',
+      href: '#',
+    },
+    {
+      src: '/bring-me-the-horizon.jpg',
+      name: 'Daily Mix 2',
+      description: 'Lorem ipsum dolor sit amet',
+      href: '#',
+    },
+    {
+      src: '/thousand-foot-krutch.jpg',
+      name: 'Daily Mix 3',
+      description: 'Lorem ipsum dolor sit amet',
+      href: '#',
+    },
+    {
+      src: '/system-of-a-down.jpeg',
+      name: 'Daily Mix 4',
+      description: 'Lorem ipsum dolor sit amet',
+      href: '#',
+    },
+  ]
+
   return (
-    <main>
-      <div className="container p-2">
-        <div className="grid grid-cols-2 gap-2">
-          <div>
-            <div className="bg-zinc-900 border border-zinc-800 rounded-md p-4 mb-2">
-              <div className="flex items-center gap-4 mb-4">
-                <House color="#a1a1aa" size={25} />
-                <p className="text-zinc-400">Início</p>
-              </div>
-              <div className="flex items-center gap-4">
-                <Search color="#a1a1aa" size={25} />
-                <p className="text-zinc-400">Buscar</p>
-              </div>
-            </div>
-            <div className="bg-zinc-900 border border-zinc-800 rounded-md p-4">
-              <div className="flex justify-between">
-                <div className="flex gap-2">
-                  <Library color="#a1a1aa" size={25} />
-                  <p className="text-zinc-400">Sua Biblioteca</p>
-                </div>
-                <div className="flex gap-4">
-                  <button>
-                    <Plus color="#a1a1aa" size={25} />
-                  </button>
-                  <button>
-                    <ArrowRight color="#a1a1aa" size={25} />
-                  </button>
-                </div>
-              </div>
-              <div className="flex gap-2 my-6">
-                <button className="text-white bg-zinc-800 px-2 py-1 rounded-full">
-                  Playlists
-                </button>
-                <button className="text-white bg-zinc-800 px-2 py-1 rounded-full">
-                  Artistas
-                </button>
-              </div>
-              <div className="h-80 overflow-y-scroll">
-                <div className="flex justify-between my-6">
-                  <div>
-                    <Search color="#a1a1aa" size={20} />
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <p className="text-zinc-400">Recentes</p>
-                    <List color="#a1a1aa" size={20} />
-                  </div>
-                </div>
-                <div className="flex items-center gap-2 my-4">
-                  <div>
-                    <Image
-                      className="rounded-full"
-                      src="/metallica.jpeg"
-                      width={50}
-                      height={50}
-                      alt="metallica"
-                    />
-                  </div>
-                  <div>
-                    <p className="text-white">Metallica</p>
-                    <p className="text-zinc-500">Artista</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-2 my-4">
-                  <div>
-                    <Image
-                      className="rounded-full"
-                      src="/bring-me-the-horizon.jpg"
-                      width={50}
-                      height={50}
-                      alt="metallica"
-                    />
-                  </div>
-                  <div>
-                    <p className="text-white">Bring Me The Horizon</p>
-                    <p className="text-zinc-500">Artista</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-2 my-4">
-                  <div>
-                    <Image
-                      className="rounded-full"
-                      src="/system-of-a-down.jpeg"
-                      width={50}
-                      height={50}
-                      alt="metallica"
-                    />
-                  </div>
-                  <div>
-                    <p className="text-white">System Of A Down</p>
-                    <p className="text-zinc-500">Artista</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-2 my-4">
-                  <div>
-                    <Image
-                      className="rounded-full"
-                      src="/thousand-foot-krutch.jpg"
-                      width={50}
-                      height={50}
-                      alt="metallica"
-                    />
-                  </div>
-                  <div>
-                    <p className="text-white">Thousand Foot Krutch</p>
-                    <p className="text-zinc-500">Artista</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-2 my-4">
-                  <div>
-                    <Image
-                      className="rounded-full"
-                      src="/red-hot-chili-peppers.jpeg"
-                      width={50}
-                      height={50}
-                      alt="metallica"
-                    />
-                  </div>
-                  <div>
-                    <p className="text-white">Red Hot Chili Peppers</p>
-                    <p className="text-zinc-500">Artista</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-2 my-4">
-                  <div>
-                    <Image
-                      className="rounded-full"
-                      src="/queen.jpg"
-                      width={50}
-                      height={50}
-                      alt="metallica"
-                    />
-                  </div>
-                  <div>
-                    <p className="text-white">Queen</p>
-                    <p className="text-zinc-500">Artista</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="bg-gradient-to-b from-zinc-800 to-zinc-900 border border-zinc-800 rounded-md p-4">
+    <section>
+      <div className="p-2">
+        <div className="flex gap-2">
+          <Sidebar />
+          <main className="bg-gradient-to-b from-zinc-800 to-zinc-900 rounded-md p-4 flex-1 mb-20">
             <div className="flex justify-between">
               <div className="flex gap-2 my-auto">
                 <button className="bg-zinc-900 p-2 rounded-full">
@@ -171,10 +100,10 @@ export default function Home() {
                 </button>
               </div>
               <div className="flex items-center gap-2">
-                <button className="text-black bg-white px-2 py-1 rounded-full">
+                <button className="text-black bg-white px-3 py-2 rounded-full font-semibold text-sm">
                   Ver planos Premium
                 </button>
-                <button className="text-white bg-black px-2 py-1 rounded-full flex items-center gap-1">
+                <button className="text-white bg-black px-3 py-2 rounded-full flex items-center gap-1 font-semibold text-sm">
                   <ArrowDownCircle color="white" size={20} />
                   Instalar aplicativo
                 </button>
@@ -187,67 +116,34 @@ export default function Home() {
               </div>
             </div>
             <p className="text-white text-3xl font-black my-6">Boa noite</p>
-            <div className="grid grid-cols-3 grid-rows-2 gap-2">
-              <div className="flex items-center gap-2 bg-zinc-700 rounded-md">
-                <Image
-                  className="rounded-s-md"
-                  src="/queen.jpg"
-                  width={50}
-                  height={50}
-                  alt="metallica"
-                />
-                <p className="text-white">Queen</p>
-              </div>
-              <div className="flex items-center gap-2 bg-zinc-700 rounded-md">
-                <Image
-                  className="rounded-s-md"
-                  src="/queen.jpg"
-                  width={50}
-                  height={50}
-                  alt="metallica"
-                />
-                <p className="text-white">Queen</p>
-              </div>
-              <div className="flex items-center gap-2 bg-zinc-700 rounded-md">
-                <Image
-                  className="rounded-s-md"
-                  src="/queen.jpg"
-                  width={50}
-                  height={50}
-                  alt="metallica"
-                />
-                <p className="text-white">Queen</p>
-              </div>
-              <div className="flex items-center gap-2 bg-zinc-700 rounded-md">
-                <Image
-                  className="rounded-s-md"
-                  src="/queen.jpg"
-                  width={50}
-                  height={50}
-                  alt="metallica"
-                />
-                <p className="text-white">Queen</p>
-              </div>
-              <div className="flex items-center gap-2 bg-zinc-700 rounded-md">
-                <Image
-                  className="rounded-s-md"
-                  src="/queen.jpg"
-                  width={50}
-                  height={50}
-                  alt="metallica"
-                />
-                <p className="text-white">Queen</p>
-              </div>
-              <div className="flex items-center gap-2 bg-zinc-700 rounded-md">
-                <Image
-                  className="rounded-s-md"
-                  src="/queen.jpg"
-                  width={50}
-                  height={50}
-                  alt="metallica"
-                />
-                <p className="text-white">Queen</p>
-              </div>
+            <div className="grid grid-cols-2 grid-rows-3 gap-2">
+              {Favour.map((text, key) => {
+                return (
+                  <Link
+                    key={key}
+                    href={text.href}
+                    className="flex items-center justify-between bg-white/10 hover:bg-white/20 rounded-md group"
+                  >
+                    <div className="flex gap-4 items-center">
+                      <Image
+                        className="rounded-s-md"
+                        src={text.src}
+                        width={50}
+                        height={50}
+                        alt={text.name}
+                      />
+                      <p className="text-white font-bold text-sm">
+                        {text.name}
+                      </p>
+                    </div>
+                    <div>
+                      <button className="bg-green-500 rounded-full flex items-center justify-center ps-1 w-10 h-10 invisible group-hover:visible me-2">
+                        <Play fill="bg-black" color="black" size={25} />
+                      </button>
+                    </div>
+                  </Link>
+                )
+              })}
             </div>
             <div className="flex items-center justify-between">
               <p className="text-white text-2xl font-bold my-6">
@@ -255,63 +151,31 @@ export default function Home() {
               </p>
               <p className="text-zinc-400">Mostrar tudo</p>
             </div>
-            <div className="grid grid-cols-3 gap-6">
-              <div className="bg-zinc-800 rounded-lg p-4">
-                <Image
-                  className="rounded-md"
-                  src="/queen.jpg"
-                  width={100}
-                  height={100}
-                  alt="metallica"
-                />
-                <p className="text-white mt-4 mb-1">kdjdkjkd</p>
-                <p className="text-zinc-500">
-                  Lorem ipsum dolor sit amet consectetur elit.
-                </p>
-              </div>
-              <div className="bg-zinc-800 rounded-lg p-4">
-                <Image
-                  className="rounded-md"
-                  src="/queen.jpg"
-                  width={100}
-                  height={100}
-                  alt="metallica"
-                />
-                <p className="text-white mt-4 mb-1">kdjdkjkd</p>
-                <p className="text-zinc-500">
-                  Lorem ipsum dolor sit amet consectetur elit.
-                </p>
-              </div>
-              <div className="bg-zinc-800 rounded-lg p-4">
-                <Image
-                  className="rounded-md"
-                  src="/queen.jpg"
-                  width={100}
-                  height={100}
-                  alt="metallica"
-                />
-                <p className="text-white mt-4 mb-1">kdjdkjkd</p>
-                <p className="text-zinc-500">
-                  Lorem ipsum dolor sit amet consectetur elit.
-                </p>
-              </div>
+            <div className="grid grid-cols-4 gap-6">
+              {ForYou.map((text, key) => {
+                return (
+                  <Link key={key} href={text.href}>
+                    <div className="bg-zinc-800 hover:bg-white/10 rounded-lg p-3">
+                      <Image
+                        className="rounded-md w-full"
+                        src={text.src}
+                        width={100}
+                        height={100}
+                        alt={text.name}
+                      />
+                      <p className="text-white mt-4 mb-1 font-bold">
+                        {text.name}
+                      </p>
+                      <p className="text-zinc-500">{text.description}</p>
+                    </div>
+                  </Link>
+                )
+              })}
             </div>
-          </div>
+          </main>
         </div>
-        <div className="bg-black flex items-center justify-between py-4">
-          <div></div>
-          <div>
-            <div className="flex items-center gap-6">
-              <Shuffle color="#3f3f46" size={15} />
-              <SkipBack color="#71717a" size={25} />
-              <PauseCircle color="#71717a" size={40} />
-              <SkipForward color="#71717a" size={25} />
-              <Repeat2 color="#3f3f46" size={15} />
-            </div>
-          </div>
-          <div></div>
-        </div>
+        <Footer />
       </div>
-    </main>
+    </section>
   )
 }
